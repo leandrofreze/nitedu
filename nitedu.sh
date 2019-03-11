@@ -270,7 +270,7 @@ else
 	echo
 	sudo ./password_root.sh
 	echo
-	sudo rm password_root.sh
+	sudo rm -v password_root.sh
 	echo
 	if [ -e "/etc/installer/nopasswd4sudo.sh" ]; then
 		echo
@@ -861,7 +861,7 @@ echo
 cd /home/"$USER"/.local/share/desktop-directories/
 tar -xvf directory.tar
 echo
-rm directory.tar
+sudo rm -v directory.tar
 echo
 sudo rm -v /etc/installer/directory.tar
 echo
@@ -911,18 +911,18 @@ if [ -e "/etc/installer/wine.sh" ]; then
 		cd /etc/installer/
 	fi
 	if [ -e "/etc/installer/hq1.05_install.exe" ]; then
-		rm -v /home/"$USER"/Área\ de\ Trabalho/HagáQuê.desktop
+		sudo rm -v /home/"$USER"/Área\ de\ Trabalho/HagáQuê.desktop
 		echo
-		rm -v /home/"$USER"/Área\ de\ Trabalho/HagáQuê.lnk
+		sudo rm -v /home/"$USER"/Área\ de\ Trabalho/HagáQuê.lnk
 		echo
 	fi
 	if [ -e "/etc/installer/Pivot_3.1_portugues.exe" ]; then
 		if [ -e "/home/"$USER"/Área de Trabalho/Pivot Brasil.lnk" ]; then
-			rm -v /home/"$USER"/Área\ de\ Trabalho/Pivot\ Brasil.lnk
+			sudo rm -v /home/"$USER"/Área\ de\ Trabalho/Pivot\ Brasil.lnk
 			echo
 		fi
 		if [ -e "/home/"$USER"/Área de Trabalho/Pivot Brasil.desktop" ]; then
-			rm -v /home/"$USER"/Área\ de\ Trabalho/Pivot\ Brasil.desktop
+			sudo rm -v /home/"$USER"/Área\ de\ Trabalho/Pivot\ Brasil.desktop
 			echo
 		fi
 	fi
@@ -1268,7 +1268,7 @@ else
 	sudo megadl 
 	echo
 fi
-rm -v /home/"$USER"/.config/menus/xfce-applications.menu
+sudo rm -v /home/"$USER"/.config/menus/xfce-applications.menu
 echo
 cp -v /etc/installer/xfce-applications.menu.tec /home/"$USER"/.config/menus/xfce-applications.menu
 echo
