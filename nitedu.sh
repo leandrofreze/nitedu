@@ -1415,6 +1415,14 @@ else
 	sudo megadl https://mega.nz/#!caRwFQYY!dM9QaGxZq2aOf57LQUASCt8DnuJR8R0GKp5ttiZzlr0
 	echo
 fi
+if [ -e "/etc/installer/copyfiles.sh" ]; then
+	sudo rm -v /etc/installer/copyfiles.sh
+	echo
+fi
+if [ -e "/xdg/autostart/copyfiles.desktop" ]; then
+	sudo rm -v /etc/xdg/autostart/copyfiles.desktop
+	echo
+fi
 sudo mv -v /etc/installer/10periodic /etc/apt/apt.conf.d/10periodic
 echo
 sudo mv -v /etc/installer/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades
