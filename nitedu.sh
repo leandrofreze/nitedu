@@ -80,7 +80,13 @@ else
 	else
 		echo
 	fi
-	sudo apt-get purge -y thunderbird pidgin pidgin-data transmission-gtk transmission-common gigolo xfce4-notes orage gnome-software
+	prog=`dpkg -l | grep thunderbird | awk '{ print $2 }'`
+	if [ -z $prog ]; then
+		sudo apt-get purge -y thunderbird pidgin pidgin-data transmission-gtk transmission-common gigolo xfce4-notes orage gnome-software
+		echo
+	else
+		echo
+	fi
 	echo
 
 	# Pergunta se a instalação é em notebook ou desktop
@@ -309,6 +315,16 @@ else
 	echo "##                                 ##"
 	echo "#####################################"
 	echo
+	if [ -e "/etc/installer/copyfiles.sh" ]; then
+		sudo rm -v /etc/installer/copyfiles.sh
+		echo
+	fi
+	if [ -e "/xdg/autostart/copyfiles.desktop" ]; then
+		sudo rm -v /etc/xdg/autostart/copyfiles.desktop
+		echo
+	fi
+	echo -n "5 " && sleep 1 && echo -n "4 " && sleep 1 && echo -n "3 " && sleep 1 && echo -n "2 " && sleep 1 && echo -n "1 " && sleep 1 && echo "0"
+	echo
 	sudo reboot
 fi
 
@@ -477,8 +493,8 @@ cp -v xfce4-desktop.xml /home/"$USER"/.config/xfce4/xfconf/xfce-perchannel-xml/x
 echo
 sudo rm -v xfce4-desktop.xml
 echo
-sudo rm -v xfce4-panel.xml
-echo
+#sudo rm -v xfce4-panel.xml
+#echo
 if [ -e "/etc/installer/icons.tar" ]; then
 	echo
 else
@@ -1413,14 +1429,6 @@ if [ -e "/etc/installer/update_week" ]; then
 	echo
 else
 	sudo megadl https://mega.nz/#!caRwFQYY!dM9QaGxZq2aOf57LQUASCt8DnuJR8R0GKp5ttiZzlr0
-	echo
-fi
-if [ -e "/etc/installer/copyfiles.sh" ]; then
-	sudo rm -v /etc/installer/copyfiles.sh
-	echo
-fi
-if [ -e "/xdg/autostart/copyfiles.desktop" ]; then
-	sudo rm -v /etc/xdg/autostart/copyfiles.desktop
 	echo
 fi
 sudo mv -v /etc/installer/10periodic /etc/apt/apt.conf.d/10periodic
