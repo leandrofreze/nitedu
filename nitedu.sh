@@ -80,14 +80,13 @@ else
 	else
 		echo
 	fi
-	prog=`dpkg -l | grep thunderbird | awk '{ print $2 }'`
+	prog=`dpkg -l | grep gigolo | awk '{ print $2 }'`
 	if [ -z $prog ]; then
 		sudo apt-get purge -y thunderbird pidgin pidgin-data transmission-gtk transmission-common gigolo xfce4-notes orage gnome-software
 		echo
 	else
 		echo
 	fi
-	echo
 
 	# Pergunta se a instalação é em notebook ou desktop
 	echo "## A instalação será em notebook? (S/N) ##"
@@ -325,6 +324,10 @@ else
 	fi
 	echo -n "5 " && sleep 1 && echo -n "4 " && sleep 1 && echo -n "3 " && sleep 1 && echo -n "2 " && sleep 1 && echo -n "1 " && sleep 1 && echo "0"
 	echo
+	echo "Tecle ENTER para continuar e reiniciar o computador."
+	read enter
+	echo "# Reiniciando o sistema #"
+	echo
 	sudo reboot
 fi
 
@@ -531,8 +534,8 @@ sudo mv -v libwhiskermenu.so /usr/lib/i386-linux-gnu/xfce4/panel/plugins/libwhis
 echo
 echo -n "5 " && sleep 1 && echo -n "4 " && sleep 1 && echo -n "3 " && sleep 1 && echo -n "2 " && sleep 1 && echo -n "1 " && sleep 1 && echo "0"
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 
 # Instala todos os programas ou aplicativo para escolher quais programas
 
@@ -580,28 +583,28 @@ else
 fi
 sudo chmod -v +x /etc/installer/wine.sh
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 sudo ./download.sh
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 sudo ./ppa.sh
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 sudo apt-get update
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 sudo ./install.sh
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 sudo ./dpkg.sh
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 echo
 sudo rm -v download.sh
 echo
@@ -698,8 +701,8 @@ if [ -e "/etc/installer/applications.tar" ]; then
 	echo
 fi
 
-echo "parada de verificação"
-read enter
+# echo "parada de verificação"
+# read enter
 
 if [ -d "/usr/local/Physion/" ]; then
 	if [ -e "/home/"$USER"/Área de Trabalho/Physion-desktop.desktop" ]; then
@@ -883,8 +886,8 @@ sudo rm -v /etc/installer/directory.tar
 echo
 echo -n "5 " && sleep 1 && echo -n "4 " && sleep 1 && echo -n "3 " && sleep 1 && echo -n "2 " && sleep 1 && echo -n "1 " && sleep 1 && echo "0"
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 cd /etc/installer
 
 #if [ -e "/etc/installer/xfce4-panel.xml" ]; then
@@ -905,8 +908,8 @@ sudo rm -v /etc/skel/Desktop
 echo
 echo -n "5 " && sleep 1 && echo -n "4 " && sleep 1 && echo -n "3 " && sleep 1 && echo -n "2 " && sleep 1 && echo -n "1 " && sleep 1 && echo "0"
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 
 # Instala programas do Wine, se foram selecionados no instalador
 # Isso foi necessário pois só é possivel instalar aplicativos do wine com usuario atual (sem sudo ou su)
@@ -946,8 +949,8 @@ fi
 echo
 echo -n "5 " && sleep 1 && echo -n "4 " && sleep 1 && echo -n "3 " && sleep 1 && echo -n "2 " && sleep 1 && echo -n "1 " && sleep 1 && echo "0"
 echo
-echo "Tecle ENTER para continuar."
-read enter
+# echo "Tecle ENTER para continuar."
+# read enter
 
 # Pergunta qual o modelo de PC está sendo instalado (Terminal simples ou multiterminal)
 
@@ -1462,7 +1465,7 @@ echo
 echo
 echo -n "5 " && sleep 1 && echo -n "4 " && sleep 1 && echo -n "3 " && sleep 1 && echo -n "2 " && sleep 1 && echo -n "1 " && sleep 1 && echo "0"
 echo
-echo "Tecle ENTER para continuar."
+echo "Tecle ENTER para continuar e reiniciar o computador."
 read enter
 echo "# Reiniciando o sistema #"
 echo
